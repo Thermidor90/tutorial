@@ -33,3 +33,52 @@ class JejuOlle(models.Model):
     class Meta:
         db_table = 'jeju_olle'
         managed = False
+
+
+class Owner(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    class Meta:
+        db_table = 'owner'
+
+class Animal(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    age = models.IntegerField(null=True)
+    owner = models.ForeignKey(Owner, on_delete=models.SET_NULL, null=True)
+    class Meta:
+        db_table = 'animal'
+
+
+class Warranty(models.Model):
+    model_nm = models.CharField(max_length=50, null=True)
+    period = models.IntegerField(null=True)
+    class Meta:
+        db_table = 'warranty'
+
+class Product(models.Model):
+    name = models.CharField(max_length=50, null=True)
+    price = models.IntegerField(null=True)
+    animal = models.ForeignKey(Animal, on_delete=models.SET_NULL, null=True)
+    warranty = models.OneToOneField(Warranty, on_delete=models.SET_NULL, null=True)
+    class Meta:
+        db_table = 'product'
+
+
+class Dept(models.Model):
+    deptno = models.IntegerField(primary_key=True)
+    dname = models.CharField(max_length=14)
+    loc = models.CharField(max_length=13)
+    class Meta:
+        db_table = 'dept'
+
+
+class Emp(models.Model):
+    empno = models.IntegerField(primary_key=True)
+    ename = models.CharField(max_length=10)
+    job = models.CharField(max_length=9)
+    mgr = models.IntegerField(null=True)
+    hiredate = models.DateTimeField(null=True)
+    sal = models.IntegerField(null=True)
+    comm = models.IntegerField(null=True)
+    dept = models.ForeignKey(Dept, on_delete=models.SET_NULL, null=True)
+    class Meta:
+        db_table = 'emp'
