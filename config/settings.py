@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'firstapp',
     'secondapp',
-    
+    'thirdapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,8 +80,30 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'custom': { # thirdapp에서 사용할 데이터베이스 설정 추가
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'human',
+    'USER': 'human',
+    'PASSWORD': '1234',
+    'HOST': '15.164.153.191',
+    'PORT': 3306
     }
 }
+DATABASE_ROUTERS = ['thirdapp.router.DBRouter']
+
+
+# MySQL (MariaDB)
+# DATABASES = {
+# 'default': {
+# 'ENGINE': 'django.db.backends.mysql',
+# 'NAME': 'phw',
+# 'USER': 'system',
+# 'PASSWORD': '1234',
+# 'HOST': '127.0.0.1',
+# 'PORT': 3306
+# }
+# }
 
 
 # Password validation

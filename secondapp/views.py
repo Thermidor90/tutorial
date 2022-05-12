@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from .models import Course
+from .models import ArmyShop, Course
 
 def show(request):
     course = Course.objects.all()
@@ -10,6 +10,13 @@ def show(request):
     #     result += c.name + '<br>'
     # return HttpResponse(result)
     return render(request, 'secondapp/show.html', { 'data': course })
+
+
+def army_shop(request):
+    shops = ArmyShop.objects.all()
+    print(shops)
+
+    return render(request, 'secondapp/army_shop.html', { 'data': shops })
 
 
 def insert(request):
