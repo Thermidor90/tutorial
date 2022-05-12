@@ -18,6 +18,7 @@ from django.urls import path, include
 from firstapp import views
 from . import views as config_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index1/', views.index1),
