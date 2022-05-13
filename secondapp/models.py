@@ -10,7 +10,7 @@ class ArmyShop(models.Model):
     month = models.IntegerField()
     year = models.IntegerField()
 
-class Meta:
-    db_table = 'army_shop'
-    # 이미 생성되어있는 테이블이므로
-    managed = False
+    class Meta:
+        db_table = 'army_shop'
+        # 이미 생성되어있는 테이블이므로
+        managed = False

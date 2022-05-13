@@ -69,6 +69,7 @@ class Dept(models.Model):
     loc = models.CharField(max_length=13)
     class Meta:
         db_table = 'dept'
+        managed = False
 
 
 class Emp(models.Model):
@@ -76,9 +77,10 @@ class Emp(models.Model):
     ename = models.CharField(max_length=10)
     job = models.CharField(max_length=9)
     mgr = models.IntegerField(null=True)
-    hiredate = models.DateTimeField(null=True)
-    sal = models.IntegerField(null=True)
+    hiredate = models.DateTimeField()
+    sal = models.IntegerField()
     comm = models.IntegerField(null=True)
-    dept = models.ForeignKey(Dept, on_delete=models.SET_NULL, null=True)
+    dept = models.ForeignKey(Dept, on_delete=models.CASCADE, db_column='deptno')
     class Meta:
         db_table = 'emp'
+        managed = False
