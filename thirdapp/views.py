@@ -1,5 +1,19 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Shop, JejuOlle
+from .models import Owner, Shop, JejuOlle
+
+
+def owner(request):
+    if request.method == 'POST':
+        name = request.POST.get()
+
+        owner = Owner(name=name)
+        owner.save()
+
+        return HttpResponse('주인 정보 등록 완료')
+    return render(request, 'thirdapp/owner.html', {})
+
+    
 
 def jeju_olle(request):
     # jeju_olle_list = JejuOlle.objects.all()
@@ -18,6 +32,10 @@ def jeju_olle(request):
         'thirdapp/jeju_olle.html',
         {'jeju_olle_list': jeju_olle_list}
     )
+
+
+def jeju_olle_ajax(request):
+    return render(request, 'thirdapp/jeju_olle_ajax.html', {})
 
 
 def shop(request):

@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -44,3 +43,6 @@ def insert(request):
 def main(request):
     return HttpResponse(
         '<h1><u>Main</u></h1>' )
+
+def course_ajax(request):
+    return render(request, 'secondapp/course_ajax.html', {})

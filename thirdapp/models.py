@@ -1,4 +1,3 @@
-from turtle import distance
 from django.db import models
 from django.db.models.fields import CharField, IntegerField
 from django.db.models.fields import FloatField
