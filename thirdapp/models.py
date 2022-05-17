@@ -83,3 +83,14 @@ class Emp(models.Model):
     class Meta:
         db_table = 'emp'
         managed = False
+
+class Hospital(models.Model):
+    sido = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    medical = models.IntegerField(default=0)
+    room = models.IntegerField(default=0)
+    tel = models.CharField(max_length=15)
+    address = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'hospital'
+        managed = False
