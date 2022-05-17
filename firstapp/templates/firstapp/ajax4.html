@@ -12,7 +12,8 @@
 
 
     const data = axios({
-        url: '/first/req/get/',
+        // url: '/first/req/post/',
+        url: '{% url "firstapp:req_post" %}',
         method: 'post',
         data: formData
     });
