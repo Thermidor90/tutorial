@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'secondapp',
     'thirdapp',
     'member',
+    'file',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

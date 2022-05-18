@@ -28,10 +28,12 @@ urlpatterns = [
     
 
     path('first/', include('firstapp.urls')),
-    
+
     path('member/', include('member.urls')),
     
     path('second/', include('secondapp.urls')),
     
     path('third/', include('thirdapp.urls')),
+    
+    path('file/', include('file.urls')),
 ]
