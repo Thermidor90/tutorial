@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
-from .models import ArmyShop, Course
+from .models import ArmyShop, Course, CourseForm
 
 def show(request):
     course = Course.objects.all()
@@ -46,3 +46,16 @@ def main(request):
 
 def course_ajax(request):
     return render(request, 'secondapp/course_ajax.html', {})
+
+def course_save(request):
+    if request.method == 'POST':
+        form = CourseForm(request.POST)
+    if form.is_valid():
+        return redirect('/second/course/save/')
+    else:
+        form = CourseForm()
+    
+    return render(
+        request, 'firstapp/form_model.html',
+        { 'form': form }
+    )

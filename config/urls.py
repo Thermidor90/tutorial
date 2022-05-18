@@ -23,10 +23,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index1/', views.index1),
     path('index2/', views.index2),
-    path('first/', include('firstapp.urls')),
     path('home/', config_views.home),
     path(' ', config_views.index),
+    
 
+    path('first/', include('firstapp.urls')),
+    
+    path('member/', include('member.urls')),
+    
     path('second/', include('secondapp.urls')),
+    
     path('third/', include('thirdapp.urls')),
 ]

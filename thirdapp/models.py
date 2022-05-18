@@ -39,6 +39,7 @@ class Owner(models.Model):
     class Meta:
         db_table = 'owner'
 
+
 class Animal(models.Model):
     name = models.CharField(max_length=50, null=True)
     age = models.IntegerField(null=True)

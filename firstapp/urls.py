@@ -6,7 +6,7 @@ from . import views
 app_name = 'firstapp'
 
 urlpatterns = [
-    path('form/model/', views.form_model),
+    # path('form/model/', views.form_model),
 
     path('main/', views.main),
     path('insert/', views.insert),
