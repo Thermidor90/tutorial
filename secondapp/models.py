@@ -1,7 +1,6 @@
-from tkinter import Widget
+# from tkinter import Widget
 from django.db import models
-from django import forms
-from .models import Course
+# from .models import Course
 
 from member import forms
 
@@ -20,16 +19,16 @@ class ArmyShop(models.Model):
         # 이미 생성되어있는 테이블이므로
         managed = False
 
-class CourseForm(forms.ModelForm):
-    class Meta:
-        model = Course
-        fields = ['name', 'cnt']
-        Widget = {
-            'name': forms.TextInput(
-                attrs={'required':False, 'size': 10}),
-            'cnt': forms.TextInput(
-                attrs={'required':False, 'size': 10}),
-        }
-        labels = {
-            'name':'과목', 'cnt':'수강인원'
-        }
+# class CourseForm(forms.ModelForm):
+#     class Meta:
+#         model = Course
+#         fields = ['name', 'cnt']
+#         Widget = {
+#             'name': forms.TextInput(
+#                 attrs={'required':False, 'size': 10}),
+#             'cnt': forms.TextInput(
+#                 attrs={'required':False, 'size': 10}),
+#         }
+#         labels = {
+#             'name':'과목', 'cnt':'수강인원'
+#         }
